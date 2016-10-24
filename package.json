@@ -2,7 +2,7 @@
   "name": "react-intl-redux",
   "version": "0.1.0",
   "description": "Redux binding for React Intl",
-  "main": "lib/index",
+  "main": "src/index.js",
   "scripts": {
     "build": "babel src --out-dir lib",
     "clean": "rimraf lib dist coverage",
