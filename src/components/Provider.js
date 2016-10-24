@@ -1,3 +1,4 @@
+/* @jsx */
 import {connect, Provider as ReduxProvider} from 'react-redux'
 import React, {PropTypes} from 'react'
 
@@ -15,7 +16,7 @@ const Provider = ({store, children}) => {
 
 Provider.propTypes = {
   children: PropTypes.element.isRequired,
-  store: PropTypes.object.isRequired,
+  store: PropTypes.object.isRequired
 }
 
 export default Provider

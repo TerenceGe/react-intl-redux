@@ -1,29 +1,20 @@
 import warning from 'warning'
+import { createAction, handleAction } from 'redux-actions'
+import Provider from './components/Provider'
+import IntlProvider from './components/IntlProvider'
 
-export IntlProvider from './components/IntlProvider'
-export Provider from './components/Provider'
-
+export Provider
+export IntlProvider
 export const UPDATE = '@@intl/UPDATE'
-
-export const updateIntl = ({locale, messages}) => ({
-  type: UPDATE,
-  payload: {locale, messages},
-})
-
-export const update = (intl) => {
-  warning(true, '[react-intl-redux] `update` is going to be removed, use `updateIntl` instead')
-  return updateIntl(intl)
-}
+export const updateIntl = createAction(UPDATE)
 
 const initialState = {
   locale: 'en',
-  messages: {},
+  messages: {}
 }
 
-export function intlReducer(state = initialState, action) {
-  if (action.type !== UPDATE) {
-    return state
+export const intlReducer = handleAction(UPDATE, {
+  next(state, action) {
+    return action.payload
   }
-
-  return { ...state, ...action.payload }
-}
+}, initialState)
